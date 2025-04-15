@@ -1,0 +1,198 @@
+/* index.css */
+:root {
+    --primary-blue: #007bff;
+    --secondary-aqua: #4ecdc4;
+    --background-color: linear-gradient(135deg, #e6f7ff, #b3e0ff); /* Gradient background */
+    --text-color: #333;
+    --alt-background: #b3e0ff;
+    --white-text: white;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--background-color); /* Apply gradient background */
+    color: var(--text-color);
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+.navbar-custom {
+    background-color: var(--primary-blue);
+    color: whitesmoke;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav a {
+    color: var(--white-text);
+}
+
+.navbar-custom .nav a {
+    transition: color 0.3s ease;
+}
+
+.navbar-custom .nav a:hover {
+    color: var(--secondary-aqua);
+}
+
+.about-content, .news-section, .info-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: var(--white-text);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for hover effect */
+}
+
+.about-content:hover, .news-section:hover, .info-section:hover {
+    transform: translateY(-5px); /* Slightly lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.news-section h3, .info-section h3, .about-content h2 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--alt-background); /* Add bottom border */
+    padding-bottom: 10px;
+}
+
+.footer {
+    background-color: var(--primary-blue);
+    color: var(--white-text);
+    padding: 15px;
+    height: 40px;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Add top shadow */
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    transition: background-color 0.3s ease;
+    color: var(--white-text);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: var(--white-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid var(--primary-blue);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.carousel-caption h2, .carousel-caption p {
+    color: var(--white-text);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--white-text);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Roller effect for sections */
+.about-content, .news-section, .info-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content::before, .news-section::before, .info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.8s;
+    z-index: 1;
+}
+
+.about-content:hover::before, .news-section:hover::before, .info-section:hover::before {
+    left: 100%; /* Move the highlight across the section */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-content, .news-section, .info-section {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 15px;
+    }
+    .carousel-caption {
+        padding: 10px;
+    }
+    .carousel-caption h2 {
+        font-size: 1.5em;
+    }
+}
